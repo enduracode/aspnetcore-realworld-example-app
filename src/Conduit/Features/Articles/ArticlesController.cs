@@ -58,5 +58,12 @@ namespace Conduit.Features.Articles
         {
             await _mediator.Send(new Delete.Command(slug));
         }
+
+        [HttpPatch("{slug}")]
+        [Authorize(AuthenticationSchemes = JwtIssuerOptions.Schemes)]
+        public async Task MarkSpam(string slug)
+        {
+            await _mediator.Send(new MarkSpam.Command(slug));
+        }
     }
 }

@@ -86,7 +86,8 @@ namespace Conduit.Features.Articles
                     UpdatedAt = DateTime.UtcNow,
                     Description = message.Article.Description,
                     Title = message.Article.Title,
-                    Slug = message.Article.Title.GenerateSlug()
+                    Slug = message.Article.Title.GenerateSlug(),
+                    IsSpam = false
                 };
                 await _context.Articles.AddAsync(article, cancellationToken);
 
